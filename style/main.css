@@ -5,7 +5,7 @@
 /*宽度1000px左右居中，发现后面很好用，很方便*/
 .leftArea{float: left;}
 .rightArea{float: right;}
-.hide{display: none;}
+/*.hide{display: none;}*/
 .show{display: block;}
 
 /*topBar*/
@@ -47,11 +47,11 @@ height: 100%; width: 87px; border-right: #E27A00 solid 1px; background:url(../im
 /*padding-right: 29px; 这样设置的原因，当购物车数量长度增加时要往左边移动，右边不动*/
 
 /*导航*/
-.navBox{height: 35px; background-color: #1369C0; color: #FFF;}
+.navBox{height: 40px; background-color: #1369C0; color: #FFF;}
 
 /*.shopClass{width: 190px; line-height: 35px; 注意，会留下后患  text-align: center;}
   因为shopClass不是全部行高和样式都居中*/
-.shopClass{width: 190px; position: relative;}
+.shopClass{width: 189px; position: relative;}
 .shopClass h3{line-height: 35px; text-align: center;}
 
 .shopClass i{width: 11px; height: 7px; overflow: hidden; 
@@ -63,86 +63,236 @@ height: 100%; width: 87px; border-right: #E27A00 solid 1px; background:url(../im
 .nav a{height: 35px; display: inline-block; padding:0 35px; color: #FFF;}
 .nav .active{background-color: #4593FD;}
 
+
+
+
+
 /*商品弹出列表*/
-.shopClass_show{background-color: #4593FD; position: absolute; left: 0; top: 35px; width: 100%; 
-padding-bottom: 1px;}
-	/*思路，长盒子shopClass里包含 标题和显示条，
-	也就是一个标题和一个盒子分别 <h3>全部商品分类<i></i></h3>、shopClass_show
-	其中此处的标题和其他li标题是不一样的
-	标题高35px 所以盒子shopClass_show的top为35px width100%就和 父元素长盒子shopClass一样宽了*/
-.shopClass_item{padding: 13px 10px; border-bottom: #3487F2 solid 1px; border-top: #5AA1FE solid 1px;
-	line-height: 16px;}
-/*.shopClass_item{padding: 14px 10px; border-bottom: #3487F2 solid 1px; border-top: #5AA1FE solid 1px;
-	line-height: 16px;}*/
-	/*细心发现这里边框下边有条横线*/
-.shopClass_item dt{
-	height: 21px; 
-	background:url(../images/icon/shop_sj.jpg) right center no-repeat;
-	line-height: 1;
-	overflow: hidden;}
-	/*把小图标>放在了dt这里*/
-.shopClass_item .b{/* font-family: "MicrosoftYaHei","微软雅黑"; font-size: 14px; font-weight: bold; */
-	font: 14px/1 "MicrosoftYaHei","微软雅黑" ;}
-.shopClass_item a{color: #FFF;}
-.shopClass_item a:hover{text-decoration: underline;}
-.shopClass_item .aLink{width: 48px; height: 20px; 
-	background:url(../images/icon/aLink_bg.png) left center no-repeat; 
-	display: inline-block;
-	text-align: center; line-height: 20px; text-decoration: underline;}
-	/*text-decoration: underline;添加下划线*/
+.topmenu{
+    display: block;
+    width: 185px;
+    height: 465px;
+    border: 2px solid #1369c0;
+    margin: 0;
+    padding: 0;
+}
+.toptitle{
+    height: 40px;
+    line-height: 40px;
+    text-align: left;
+    font-size: 11pt;
+    font-weight: bold;
+    color: White;
+    background: #1369c0;
+    padding-left: 20px;
+}
+.topmenu li{
+    height: 30px;
+    line-height: 30px;
+    font-size: 11pt;
+    list-style-type: none;
+    text-align: left;
+    padding-left: 8px;
+    z-index: 3;
+    background-image: url(1.png);
+    background-repeat: no-repeat;
+    background-position: right;
+}
+.topmenu li a{
+    text-decoration: none;
+    color: #313131;
+}
+.topmenu li a:hover{
+    text-decoration: underline;
+    font-weight: bold;
+    color: #1369c0;
+}
+.topmenu .lihover {/*鼠标移动到上面时，应用的样式*/
+    border: 1px solid #DDD;
+    border-right: 0;
+    box-shadow: 0 0 8px #DDD;
+    -moz-box-shadow: 0 0 8px #DDD;
+    -webkit-box-shadow: 0 0 8px #DDD;
+    background-image: none;
+    height:60px;
+    border-left:4px solid #1369c0;
+    
+    
+}
+ .topmenu .lihover .submenu{ /*悬浮层*/
+    display: block;
+}
 
-/*.shopClass_item active状态	*/
-.shopClass_active{background-color: #FFF; border-left: #4593FD solid 1px;}
-.shopClass_active dt{background: none;}
-.shopClass_active a{color: #000;}
-.shopClass_active .aLink{color: #FFF; text-decoration: none;}
-/*弹出的菜单*/
-.shopClass_list{width: 568px;
-	border:#CCC solid 1px; position: absolute;
-	left: 190px; top: 35px;/*  background-color: red; 测试用*/}
-	/*左边的dt（蓝色字体）部分，有个间隙宽度，dd（灰色字体）部分文字是自动填充且与dt部分保持左间距的。
-	一般做法，为dt和dd添加两个盒子再设置宽度，这里介绍另一种做法更方便。
+.topmenu .lihover span {/*白色小方框*/
+    background: white;
+    display: inline-block;
+    z-index: 20;
+    width: 20px;
+    height: 60px;
+    float: right;
+    position: relative;
+}
 
-	 height: 378px; 在这里我们把盒子shopClass_list去掉高度让他自适应*/
-.shopClass_cont{padding: 2px 20px;}
-/*为了左右间隙内嵌一个盒子shopClass_cont*/
-.shopList_item{padding: 10px 0; border-bottom: #CCC solid 1px;}
-.shopList_item dt{color: #4B87D9; line-height: 24px; font-weight: bold; 
-	height: 24px;}
-/*问1，这里的dt没有背景，那么只针对文字设置了height: 14px;有什么用呢？*/
-.shopList_item dd{padding-left: 68px; line-height: 24px; margin-top: -24px;}
-/*问1，的height: 14px;在这里可以帮助margin-top: -14px;*/
-/*试一下替换这两个选择器的代码，因为设置了line-height: 24px; 
-	.shopList_item dt{color: #4B87D9; font-weight: bold; height: 14px;}
-	.shopList_item dd{padding-left: 68px; margin-top: -14px;}*/
-.shopList_item dd a{margin-right: 12px;}
 
-.shopList_Links{padding: 15px 0;}
-.shopList_Links a{color: #FFF; background-color: #2785E6; height: 26px; 
-	;line-height: 26px; font-size: 12px; 
-	display: inline-block; padding: 0 14px 0 8px;
-	margin-right: 10px;}
-.shopList_Links span{width: 11px; height: 7px; 
-	background:url(../images/icon/shop_sj.jpg) left center no-repeat;
-	display: inline-block; margin-left: 7px;}
+.topmenu li b{
+   display:none;
+   
+}
+
+.topmenu .lihover b{
+    display:block;
+    height:30px;
+    line-height:30px;
+    font-weight:normal;
+    font-size:10pt;
+}
+
+.submenu{
+    display: none;
+    width: 715px;
+    left: 189px;
+    position: absolute;
+    top: 40px;
+    border: 1px solid #DDD;
+    z-index: 4;
+    background: white;
+    box-shadow: 0 0 8px #DDD;
+    -moz-box-shadow: 0 0 8px #DDD;
+    -webkit-box-shadow: 0 0 8px #DDD;
+}
+.leftdiv{
+    float: left;
+    width: 490px;
+    margin: 5px;
+}
+.rightdiv{
+    float: left;
+    width: 200px;
+    margin: 5px;
+}
+
+.leftdiv dl{
+    display: block;
+    border-bottom: 1px solid #EEE;
+    padding-bottom: 6px;
+    overflow: hidden;
+}
+.leftdiv dl dt{
+    display: block;
+    float: left;
+    width: 60px;
+    text-align: right;
+    height: 22px;
+    line-height: 22px;
+    padding-right: 6px;
+}
+
+.leftdiv dl dt a{
+    color: #1369c0;
+    font-weight: bold;
+    text-decoration: underline;
+    font-size: 10pt;
+}
+.leftdiv dl dd{
+    display: block;
+    overflow: hidden;
+}
+.leftdiv dl dd a{
+    display: block;
+    float: left;
+    border-left: 1px solid #CCC;
+    color: #737373;
+    font-size: 9pt;
+    padding: 0 8px;
+    height: 14px;
+    line-height: 14px;
+    margin: 4px 0;
+}
+
+.rightdiv dl dd{
+    margin: 3px 0;
+}
+
+.rightdiv dl dt{
+    color: #1369c0;
+    font-weight: bold;
+    font-size: 10pt;
+}
+
+.rightdiv dl dd a{
+    font-size: 9pt;
+    color: #737373;
+    line-height: 22px;
+}
+.rightdiv dl dd a:hover{
+    color: #737373;
+    font-weight: normal;
+}
+
+.rightPic{
+  position:relative;
+  right:-35px;
+  bottom:-30px;
+
+  }
+
+
+
+
 
 /*banner部分	*/
 .banner{margin-bottom: 15px;}
-.banner_bar{width: 810px; height:326px; float: right; position: relative; overflow: hidden;}
-.imgBox{width: 1620px; height: 326px; position: absolute; left: 0; top: 0;}
-.imgBox{float: left;}
-.ingBox img{width: 810px; height: 326px; display: block;}
-.imgNum{position: absolute; left: 0; bottom: 15px; width: 100%; text-align: center;}
-.imgNum a{width: 20px; height: 5px; background-color: #FFF; display: inline-block;
-			margin:0 3px;}
-.imgNum .active{background-color: #FF7700;}
+.banner_bar{
+    width: 811px; height:326px; float: right; 
+	position: relative; overflow: hidden;
+}
 
-.banner_big,
-.banner_big img{width: 810px; height: 326px;}
-.banner_big .imgBox{width: 1620; height: 326px;}
+
+/*图片轮播*/
+#container { 
+    width: 811px; height:326px; 
+    overflow: hidden; position: relative;
+}
+
+#list { 
+    width: 1622px; height: 400px;
+    position: absolute;
+}
+#list img { float: left;}
+
+#buttons { 
+    height: 10px; width: 100px; z-index: 2; 
+    position: absolute; bottom: 10px; left: 45%;
+}
+#buttons span { 
+    width: 20px; height: 5px; border: 1px solid #fff; 
+    background: #333; margin-right: 5px;
+    float: left; cursor: pointer;
+}
+#buttons .on {  background: orangered;}
+
+.arrow { 
+    width: 40px; height: 40px; 
+    line-height: 39px; text-align: center; 
+    font-size: 36px; z-index: 2; font-weight: bold; 
+    position: absolute; top: 180px; 
+    cursor: pointer; border-radius: 50%;
+    opacity: 0.3;
+    background-color: RGBA(0,0,0,.1); color: #fff;
+}
+.arrow:hover { background-color: RGBA(0,0,0,.7);opacity: 0.7;}
+
+#prev { left: 20px;}
+#next { right: 20px;}
+
+
+
+
 .banner_sm,
 .banner_sm img{width: 190px; height: 400px;}
 .banner_sm .imgBox{width: 380px; height: 400px;}
+
+
 /*商品标题*/
 .shopTit{height: 44px; font-family: "MicrosoftYaHei","微软雅黑"; line-height: 44px; margin-bottom: 15px; }
 .shopTit h3{font-size: 24px; float: left;font-weight: normal;padding-left: 15px;}
@@ -168,25 +318,19 @@ padding-bottom: 1px;}
 .shop_img img{width: 100%; height：218px; display: block;}
 .shop_item h3{font-size: 16px;}
 .shop_item p{font-size: 14px; color: #FF7300; line-height: 21px;}
+
 /*商品列表-小*/
-/*.shopItem_sm{width: 202px; border-right: #999 solid 1px; 
-		height: 116px; float: left;}*/
 .shopItem_sm{width: 202px; border-right: #999 solid 1px; 
 		height: 110px; padding-top: 6px; float: left;}
 .shopItem_smImg{width:95px; height: 95px; text-align: center;
 	float: left;}
 
 .shopItem_smImg img{width:95px; height: 95px; }
-/*.shopItem_smImg img{{width:95px; height: 95px; }*/
-/*.shopItem_smImg img{width: 95px; height: 95px;}*/
-
-/*.shopItem_text{padding-top: 28px; width: 107px; float: left;}*/
 .shopItem_text{padding-top: 28px; width: 100px; float: left;}
 .shopItem_text p{color: #FF7300;}
 .shopItem_text h3{font-family: "MicrosoftYaHei"."微软雅黑";
-	font-size: 16px; font-weight: normal; color: #181818; line-height: 30px;}
-
-/*.shopList_sm{background-color: red; height: 300px;}*/
+	font-size: 16px; font-weight: normal; color: #181818; line-height: 30px;
+}
 
 /*底部*/
 .footer{text-align: center;background-color: #D4D4D4; line-height: 24px; 
@@ -208,122 +352,3 @@ padding-bottom: 1px;}
 	padding-top: 44px;}
 .footer p{font-family: "宋体"; line-height: 25px; font-size: 12px;}
 .footer .web img{margin:35px 12px 49px; }*/
-
-
-
-/*产品分类*/
-.products .leftArea{width: 185px;}
-.products .rightArea{width: 810px;}
-.products .banner_bar{float: none;}
-/*产品分类导航*/
-.leftNav{background-color: #F3F3F3;border:#D7D7D7 solid 1px;}
-.nav_title{height: 34px; line-height: 34px;font-size: 14px; border-bottom: #D7D7D7 solid 1px;
-	text-align: center;}
-
-.nav_cont{padding: 0 18px 4px; border-bottom: #D7D7D7 1px dotted; margin-bottom: -1px;}
-.nav_cont h3{font-size: 12px; height: 30px; line-height: 30px;}
-/*.navCont_list{line-height: 20px;}
-.navCont_list li{float: left; width: 50%;}*/
-.navCont_list{line-height: 20px;}
-.navCont_list li{float: left; width: 50%;}
-
-/*标题*/
-.products_title{height: 34px; border-bottom: #CCCCCC solid 2px;}
-.products_title h3{width: 180px; border-bottom: #096DBA solid 2px; height: 34px;
-	line-height: 34px; text-indent: 9px;
-	margin-bottom: -2px; position: relative; }
-	/*针对IE6
-	margin:-2px;	下移，下移后被长横线遮盖
-	position:relative;	提升位置，不让长横线遮盖*/
-/*商品*/
-.item{width: 25%; *width: 24.8%; float: left; margin-bottom: 10px;
-	height: 270px;
-	position: relative;}
-	/*  *width: 24.8%;针对IE6对宽度计算不是十分精确，会出现塌陷
-		height在新的浏览器中不用设置也可以，但是IE6会出问题，部分塌陷*/
-.item_cont{padding:0 15px;}/*item_cont的内容加一个间隙*/
-.img_item{height: 170px; text-align: center;}
-.img_item img{height: 170px;}
-.item p{line-height: 20px;}
-.item a{color: #000;}
-.item a:hover{text-decoration: underline;}
-.money{color: #D4105A; font-weight: bold;}
-.stars{width: 13px; height: 12px; overflow: hidden; background: url(../images/icon/collection.jpg) left top no-repeat;
-	display: inline-block; margin-right: 1px;}
-.hot{width: 52px; height: 52px; background: url(../images/icon/hot.jpg) left top no-repeat;
-	position: absolute; right: 0; top: 0;}
-
-/*筛选*/
-.vertical li{width: auto; float: none;}
-.vertical .nav_title,
-.vertical .nav_cont h3{font-family: "MicrosoftYaHei","微软雅黑"; font-size: 14px;}
-
-.screening{border-bottom: #CCC solid 1px; font-family: Verdana;}
-.screening dt{line-height: 32px; width: 74px; text-align: right; float: left; margin-right: 42px;}
-.limit{width: 55px; float: left; line-height: 32px;}
-.screening .active{background-color: #1D7AD9; color: #FFF;}
-.screening a{padding: 2px;}
-.screening_list{line-height: 32px; width: 626px; float: left;}
-.screening_list li{width: 20%; float: left;}
-/*.screen_more{border: #CCC solid 1px; height: 23px; line-height: 23px; margin-top: 4px; 
-	float: left; 
-	background: url(../images/icon/sj_grey.gif) 92% center no-repeat; 
-	padding-right: 20px; padding-left: 11px; marrgin-right:10px;}
-	background: ... 92%.. 是一个bug当字体长度变长的时候因为百分比就不好看了，下面是改法 */
-.screen_more{border: #CCC solid 1px; height: 23px; line-height: 23px; margin-top: 4px; 
-	float: left;
-	padding-right: 11px; padding-left: 11px;	margin-right:10px;}
-	/*这里的padding-right: 11px;是针对a整个的，包括文字和图片*/
-.screen_more a{background: url(../images/icon/sj_grey.gif) right center no-repeat; 
-	padding-right: 34px;}
-	/*这里的padding-right: 34px;是针对文字的，所以让图片和文字看起来有间隙*/
-
-.addInfo{height: 31px; border:#CCC solid 1px; background-color: #F5F5F5;}
-.address{float:left;}
-/*.address span{float: left;}*/
-.add_text{float: left; line-height: 31px; padding-left: 12px; padding-right: 6px;}
-.addInfo .select{margin-top: 4px;}
-.screen_text{line-height: 31px; padding-right: 80px;}
-
-.check{position: relative; top: -1px; _top:4px;}
-.shop_number{position: relative; _top:4px;}
-/*针对浏览器不兼容，水平不平齐*/
-
-.check input,
-.check label{vertical-align: middle;}
-.shop_number em{color: #F00; font-style: normal; font-weight: bold;}
-.addCar{border: #999 solid 1px; height: 22px; display: inline-block; padding: 0 6px 0 23px;
-	background: url(../images/icon/car.jpg) 6px center no-repeat;}
-.screening_list_more{padding-left: 0.5%;}
-.screening_list_more .item{width: 33.3%;}
-
-
-/*page*/
-/*.page{text-align: center;}*/
-.page{text-align: center; position: relative; z-index: 2;}
-/*针对IE6，下面元素.page span设置了position:relative;所以导致文本框无法选中输入，所以再次调用posi提升位置*/
-
-.page a{height: 24px; display: inline-block; line-height: 24px; border: #CCC solid 1px;
-	padding:0 12px; margin:0 2px;}
-.page .hl{display: inline-block; padding: 0 12px; margin:0 2px;}
-.morePage{padding-left: 14px; display: inline-block; height: 24px; line-height: 24px;}
-.pageNum{width: 29px; padding: 0 3px; border: #CCC solid 1px; height: 24px; line-height: 24px;
-	text-align: center; margin-left: 4px;}
-.page_btn{width: 44px; height: 24px; line-height: 24px; background-color: #E8E8E8; 
-		border: #CCC solid 1px;}
-.ye{padding:0 8px 0 6px;}
-.page a,
-.page span{vertical-align: middle; position: relative;}
-/*针对IE6水平不对齐*/
-
-/*组件*/
-.select{border:#999 solid 1px; height: 22px; line-height: 22px; float: left; 
-	background-color: #FFF;
-	padding-left: 10px; padding-right: 20px; position: relative;z-index: 4;}
-.select h3{font-size: 12px; font-weight: normal;}
-.select span{position: absolute; right: 0; top: 0; height: 100%; width: 20px;
-	 background: url(../images/icon/sj_blue.jpg) center center no-repeat; }
-.show_select{position: absolute; left: -1px; top: 22px; background-color: #FFF; width: 100%;
-	border:#999 solid 1px; 
-	display: none;}
-.show_select li{padding-left: 10px;}
